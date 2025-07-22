@@ -27,6 +27,12 @@ namespace Demo
             Console.WriteLine($"Point 2: ({p2.X}, {p2.Y})");
             #endregion
 
+            #region Overview Encapsulation
+            BankAccount account = new BankAccount();
+            account.Deposit(1000);
+            Console.WriteLine($"Account Balance: {account.GetBalance()}");
+            #endregion
+
 
         }
     }
