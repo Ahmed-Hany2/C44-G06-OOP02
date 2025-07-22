@@ -59,6 +59,39 @@ namespace Assignment
             double distance = Point.Distance(p1, p2);
             Console.WriteLine($"Distance between the two points: {distance}");
 
+            // Question (3)
+            //Create a struct called "Person" with properties "Name" and "Age".
+            //Write a C# program that takes details of 3 persons as input from the user and displays the name and age of the oldest person.
+            Person[] peoples2 = new Person[3];
+
+          
+            for (int i = 0; i < 3; i++)
+            {
+                Console.WriteLine($"Enter details for person #{i + 1}:");
+
+                Console.Write("Name: ");
+                string name = Console.ReadLine();
+
+                int age;
+                Console.Write("Age: ");
+                while (!int.TryParse(Console.ReadLine(), out age) || age < 0)
+                {
+                    Console.Write("Invalid input. Enter a valid age: ");
+                }
+                people[i] = new Person(name, age);
+            }
+            Person oldest = people[0];
+
+            for (int i = 1; i < people.Length; i++)
+            {
+                if (people[i].Age > oldest.Age)
+                {
+                    oldest = people[i];
+                }
+            }
+            Console.WriteLine($"\nThe oldest person is {oldest.Name}, Age: {oldest.Age}");
+
+
         }
 }
 }
